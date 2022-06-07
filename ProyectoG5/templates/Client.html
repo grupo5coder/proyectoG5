@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Clientddd
+{% endblock %}
+
+{% block contenido %}
+<h1>Aca va el contenido de clientes</h1>
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for client_view in clientes %}
+
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">{{client_view.name}}</h5>
+            <p class="card-text">{{client_view.Cuit}}</p>
+            <p class="card-text">{{client_view.city}}</p>
+            <a href="#" class="btn btn-primary">Comprar!</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
