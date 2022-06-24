@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Catálogo de productos
+{% endblock %}
+
+{% block contenido %}
+
+<h2>Catálogo de productos</h2>
+<body>
+    </form>
+    <form class="form-inline my-2 my-lg-10" action="/Products/search_item/" method="GET">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name='search'>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
+    <form class="form-inline my-2 my-lg-10" method="get" action="/Products/create_item/">
+        <input class="btn btn-primary" type="submit" style="color: white" value="Carga de Productos" />
+    </form>
+
+    <form method="get" action=" /">
+        <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+    </form>
+
+    <div class="d-flex container" style="margin-top:2rem; margin-left:1rem">
+        {% for item in items %} &nbsp
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{item.name}}</h5>
+                <p class="card-text">{{item.description}}</p>
+                <p class="card-text">{{item.price}}</p>
+                <p class="card-text">{{item.created_at}}</p>
+                <a href="#" class="btn btn-primary" class="form-inline my-2 my-lg-10" style="width: 7rem" style="margin-top:2rem; margin-left:2rem">Add to
+                    cart</a>
+                    <form method="get" action=" /">
+                        <input class="btn btn-danger" type="submit" style="color: white" value="Delete" />
+                    </form>
+            </div>
+        </div>
+        {% endfor %}
+
+</body>
+{% endblock %}

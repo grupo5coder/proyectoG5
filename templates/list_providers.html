@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    Proveedores
+{% endblock %}
+
+{% block contenido %}
+<!-- </li>
+<li class="nav-item">
+    <a class="nav-link" href="/list_providers/create_provider/">Crear nuevo proveedor</a>
+</li> -->
+
+
+<form class="form-inline my-2 my-lg-10" method="get" action="/list_providers/create_provider/">
+    <input class="btn btn-primary" type="submit" style="color: white" value="Crear nuevo proveedor" />
+</form>
+
+<form method="get" action=" /">
+    <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+</form>
+
+<h2 style="margin-left:30rem">Estos son tus proveedores</h2>
+<body>
+{{message}}
+
+    <div class="d-flex container" style="margin-top:2rem; margin-left:1rem">
+        {% for provider in list_providers %} &nbsp
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{provider.name}}</h5>
+                <p class="card-text">{{provider.contact}}</p>
+                <p class="card-text">{{provider.contact_number}}</p>
+                <p class="card-text" style="color:red">Realizar proxima compra {{provider.next_purchase}}</p>
+                    <form method="get" action=" #">
+                        <input class="btn btn-danger" type="submit" style="color: white" value="Delete" />
+                    </form>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </body>
+    {% endblock %}

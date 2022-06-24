@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Agregar Proveedor
+{% endblock %}
+
+{% block contenido %}
+{% if form %} 
+    <h2>Completá los datos del proveedor a cargar</h2>
+
+        <form method="POST" action="">
+            {% csrf_token %} 
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit", value="Crear Proveedor">
+        </form>
+{% elif new_provider %} 
+
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/list_providers/create_provider">Crear nuevo proveedor</a>
+</li>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{new_provider.name}}</h5>
+        <p class="card-text"> {{new_provider.contact}}</p>
+        <p class="card-text">{{new_provider.contact_number}}</p>
+        <p class="card-text" style="color:red">Realizar proxima compra {{new_provider.next_purchase}}</p>
+    </div>
+</div>
+
+{% endif %} 
+<br>
+<form method="get" action="/list_providers/">
+    <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+</form>
+{% endblock %}

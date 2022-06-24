@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Clientes
+{% endblock %}
+
+{% block contenido %}
+
+</form>
+<form class="form-inline my-2 my-lg-10" action="/Client/search-client/" method="GET">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name='searchclient'>
+    <button class="btn btn-primary" type="submit">Buscar Cliente</button>
+</form>
+
+<form class="form-inline my-2 my-lg-10" method="get" action="/Client/create-client/">
+    <input class="btn btn-primary" type="submit" style="color: white" value="Carga de Clientes" />
+</form>
+
+<form method="get" action=" /">
+    <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+</form>
+
+
+
+<h2>Este es el listado de tus clientes</h2>
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for client_view in clientes %} &nbsp
+
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">{{client_view.name}}</h5>
+            <p class="card-text">{{client_view.Cuit}}</p>
+            <p class="card-text">{{client_view.city}}</p>
+            <a href="#" class="btn btn-primary" method="get" action="/client/detall-client" >Ver Detalle!</a> 
+                
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
