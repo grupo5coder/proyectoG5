@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+<h2>Este es el listado de tus detalle clientes</h2>
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+   
+
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">{{client.name}}</h5>
+            <p class="card-text">{{client.Cuit}}</p>
+            <p class="card-text">{{client.city}}</p>
+            
+           
+            
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

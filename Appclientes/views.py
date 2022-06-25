@@ -47,3 +47,12 @@ def search_client_view(request):
     return render (request,'Search_client.html', context = context)
 
 
+def detall_client(request, pk):
+    try:
+        cliente = Clients.objects.get(id=pk)
+        context = {"cliente":cliente}
+        return render(request, "detall_client.html", context=context)
+    except: 
+        context = { "error" : "el producto no existe" }
+        return render (request, "client.html", context=context)
+

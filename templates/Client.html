@@ -24,16 +24,17 @@ Clientes
 
 <h2>Este es el listado de tus clientes</h2>
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-    {% for client_view in clientes %} &nbsp
+    {% for client in clientes %} &nbsp
 
     <div class="card" style="width: 18rem;">
         
         <div class="card-body">
-            <h5 class="card-title">{{client_view.name}}</h5>
-            <p class="card-text">{{client_view.Cuit}}</p>
-            <p class="card-text">{{client_view.city}}</p>
-            <a href="#" class="btn btn-primary" method="get" action="/client/detall-client" >Ver Detalle!</a> 
-                
+            <h5 class="card-title">{{client.name}}</h5>
+            <p class="card-text">{{client.Cuit}}</p>
+            <p class="card-text">{{client.city}}</p>
+            
+            <a href="/Client/detall-client/{{client.id}}/" class="btn btn-primary"  >Ver Detalle!</a> 
+            
         </div>
     </div>
 
