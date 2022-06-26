@@ -29,7 +29,7 @@ def new_client_view(request):
                 name =  form.cleaned_data['name'],
                 fantacy_name = form.cleaned_data['fantacy_name'],
                 namer_phone = form.cleaned_data['namer_phone'],
-                date_create = form.cleaned_data['date_create'],
+                
                 adess = form.cleaned_data['adess'],
                 city =  form.cleaned_data['city'],
                 Cuit = form.cleaned_data['Cuit'],
@@ -58,22 +58,17 @@ def detall_client(request, pk):
         return render (request, "client.html", context=context)
 
 def delete_client(request, pk):
-    try :
+
         if request.method == "GET":
 
             cliente = Clients.objects.get(id=pk)
-            
             context = {"cliente":cliente}
+
         else: 
             cliente = Clients.objects.get(id=pk)
-            
             cliente.delete()
             context = {"message":"El cliente fue elimiando Correcto"} 
 
-        return render(request,"delete_Client.html",context=context)
-    except :
-        
-        context = {"error":"el Clinete no existe"} 
         return render(request,"delete_Client.html",context=context)
 
    
