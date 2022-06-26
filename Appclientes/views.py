@@ -49,19 +49,26 @@ def search_client_view(request):
     return render (request,'Search_client.html', context = context)
 
 def detall_client(request, pk):
-    try:
+    try :
         cliente = Clients.objects.get(id=pk)
         context = {"cliente":cliente}
         return render(request, "detall_client.html", context=context)
     except: 
-        context = { "error" : "el producto no existe" }
+        context = { "error" : "el cliente no existe" }
         return render (request, "client.html", context=context)
 
 def delete_client(request, pk):
-
-        cliente = Clients.objects.get(id=pk)
-        context = {"cliente":cliente}
-            
+    try :
+        if request.method == "GET":
+            cliente = Clients.objects.get(id=pk)
+            context = {"cliente":cliente}
+        else: 
+            cliente = Clients.objects.get(id=pk)
+            cliente.delete()
+        context = {"message":"El cliente fue elimiando Correcto"} 
+        return render(request,"delete_Client.html",context=context)
+    except:
+        context = {"error":"el Clinete no existe"} 
         return render(request,"delete_Client.html",context=context)
 
    

@@ -7,9 +7,22 @@
 {% block contenido %}
 
 
-{{massage}}
+
 {{error}}
- Hola 
+
+
+    <h1>   Hola el cliente a eliminar es  {{ cliente.name }} , estas seguro.  </h1>
+    <form action="/Client/delete-client/{{cliente.id}}/" method="POST" >
+        {% csrf_token %}
+        <button>  Eliminar </button>
+
+        
+    </form>
+
+
+    {{message}} 
+
+
 
 
 {% endblock %}
