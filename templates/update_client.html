@@ -7,7 +7,9 @@ Modificar Clientes
 {% block contenido %}
 
 {% if form %}
-<h2 style="margin-left:7rem">Modificar Produto </h2>
+<div class="alert alert-info" role="alert">
+    Aca se puede <a href="#" class="alert-link">Modificar Produto</a> Complete las Info:
+</div>
 <form action="" method="POST" style="margin-left:10rem;margin-top:3rem">
     {% csrf_token %}
     <table>
@@ -23,8 +25,8 @@ Modificar Clientes
 <div class="card" style="width: 15rem;background-color:blue;margin-top:4rem;margin-left:15rem">
     <div class="card-body">
         <h5 class="card-title">Nombre: {{new_item.name}}</h5>
-        <p class="card-text">Descripcion: {{new_item.description}}</p>
-        <p class="card-text">Precio: {{new_item.price}}</p>
+        <p class="card-text">Descripcion: {{new_item.Cuit}}</p>
+        <p class="card-text">Precio: {{new_item.city}}</p>
     </div>
 </div>
 {% else %}

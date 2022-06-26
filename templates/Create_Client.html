@@ -6,20 +6,32 @@
 
 {% block contenido %}
 <h2><center>{{error}}</center></h2>
-{% if form %}
-    <h1>Crear Cliente</h1>
 
+
+
+{% if form %}
+<div class="alert alert-light" role="alert">
+    <center><h1>Crear Cliente</h1></center>
+</div>
     <form action="" method="POST" >
         {% csrf_token %}
+        <center>
+        <div class="mb-3">
         <table>
             {{form.as_table}}
+            
+            </label>
         </table>
+        </div>
+        
         <input type="submit", value="Enviar!">
     </form>
+        </center>
+    
 
     {% elif new_client %}
-        <h2 style="color:green; margin-left:33rem">Nuevo cliente creado!!</h2>
-        <div class="card" style="width: 18rem;background-color: rgb(0, 255, 85);margin-top:4rem;margin-left:35rem">
+        <h2 style="color:rgb(131, 143, 131); margin-left:33rem">Nuevo cliente creado!!</h2>
+        <div class="card" style="width: 18rem;background-color: rgb(130, 172, 144);margin-top:4rem;margin-left:35rem">
             <div class="card-body">
                 <h5 class="card-title">Nombre: {{new_client.name}}</h5>
                 <p class="card-text">Cuit: {{new_client.Cuit}}</p>
@@ -27,11 +39,11 @@
         </div>
 
 {% endif %}
-
+<center>
 <form method="get" action="/Client/">
     <br>
     <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
 </form>
-
+</center>
 
 {% endblock %}

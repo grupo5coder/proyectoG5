@@ -7,16 +7,29 @@
 {% block contenido %}
 
 {% if cliente %}
-    <h1>   Hola el cliente a eliminar es  {{cliente.name}} , estas seguro?.  </h1>
+<div class="alert alert-primary" role="alert">
+
+        <h1> <Center>    
+         <div class="alert alert-primary" role="alert">
+        Hola el cliente a eliminar es <a href="#" class="alert-link">{{cliente.name}}</a>., estas seguro?.
+        </Center></h1>
+      </div>
+
+</div>
 
         <form action="/Client/delete-client/{{cliente.id}}/" method="POST" >
         {% csrf_token %}
-        <button>  Eliminar </button>
+        <center><button>Eliminar</button></center>
         </form>
+
+
 {% else %}
+
+<div class="alert alert-danger" role="alert"> 
 
         <h2><center>{{message}}</center></h2>
 
+</div>
 {% endif %}
 
     
