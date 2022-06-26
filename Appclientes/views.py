@@ -1,4 +1,6 @@
 
+from http import client
+from multiprocessing import context
 from multiprocessing.connection import Client
 from unicodedata import name
 from django.shortcuts import render
@@ -46,7 +48,6 @@ def search_client_view(request):
 
     return render (request,'Search_client.html', context = context)
 
-
 def detall_client(request, pk):
     try:
         cliente = Clients.objects.get(id=pk)
@@ -56,3 +57,12 @@ def detall_client(request, pk):
         context = { "error" : "el producto no existe" }
         return render (request, "client.html", context=context)
 
+def delete_client(request, pk):
+
+        cliente = Clients.objects.get(id=pk)
+        context = {"cliente":cliente}
+            
+        return render(request,"delete_Client.html",context=context)
+
+   
+    

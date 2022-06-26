@@ -7,7 +7,7 @@
 {% block contenido %}
 
 
-<h2>Este es el listado de tus detalle clientes</h2>
+<h2>Este es el listado de tus detalle clientes  TESTIAND</h2>
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
    
 
@@ -23,8 +23,9 @@
             <p class="card-text">{{cliente.city}}</p>
             <p class="card-text">{{cliente.city}}</p>
             <p class="card-text">{{cliente.active}}</p>
-            
-           
+        <a href="/Client/delete-client/{{cliente.id}}/" class="btn btn-danger" >Eliminar!</a> 
+
+        <a href="#" class="btn btn-primary"  >Modificar!</a> 
             
         </div>
     </div>
