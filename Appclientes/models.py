@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import Model
+import datetime
 
 # Create your models here.
 
@@ -6,7 +8,7 @@ class Clients(models.Model):
     name = models.CharField(max_length=40)
     fantacy_name = models.CharField(max_length=40)
     namer_phone = models.FloatField()
-    date_create = models.DateTimeField()
+    date_create = models.DateTimeField(auto_now_add=True)
     adess = models.CharField(max_length=200)
     city =  models.CharField(max_length=200)
     Cuit = models.CharField(max_length=30, unique=True)

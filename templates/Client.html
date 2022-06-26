@@ -7,41 +7,52 @@ Clientes
 {% block contenido %}
 
 
+{{massage}}
 {{error}}
 
 </form>
 <form class="form-inline my-2 my-lg-10" action="/Client/search-client/" method="GET">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name='searchclient'>
-    <button class="btn btn-primary" type="submit">Buscar Cliente</button>
+    <center> <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name='searchclient'>
+    <button class="btn btn-primary" type="submit">Buscar Cliente</button></center>
 </form>
 
 <form class="form-inline my-2 my-lg-10" method="get" action="/Client/create-client/">
     <input class="btn btn-primary" type="submit" style="color: white" value="Carga de Clientes" />
 </form>
 
-<form method="get" action=" /">
-    <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
-</form>
 
 
 
-<h2>Este es el listado de tus clientes</h2>
-<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+<center><h2>Este es el listado de tus clientes</h2></center>
+
+
+<div class="d-flex container" style="margin-top:5rem; margin-left:7rem">
     {% for client in clientes %} &nbsp
 
-    <div class="card" style="width: 18rem;">
+    <div class="card text-bg-primariy mb-2 g-5" style="max-width: 30rem; margin-left:1rem">
+        <div class="col">
+        <div class="card-header">{{client.name}}</div>
         
         <div class="card-body">
-            <h5 class="card-title">{{client.name}}</h5>
-            <p class="card-text">{{client.Cuit}}</p>
-            <p class="card-text">{{client.city}}</p>
             
-            <a href="/Client/detall-client/{{client.id}}/" class="btn btn-primary"  >Ver Detalle!</a> 
-            
+         <p class="card-text">{{client.Cuit}}</p>
+         <p class="card-text">{{client.city}}</p>
+
+        <h6 class="card-title">Acciones</h6>
+        
+        <a href="/Client/detall-client/{{client.id}}/" class="btn btn-primary"  >Ver Detalle!</a>
+
         </div>
+      </div>
     </div>
 
     {% endfor %}
-</div>
+<br>
+<div class="alert alert-dark" role="alert">
+<form method="get" action=" /">
+        <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+</form>
+</div>   
+<br/>
 
 {% endblock %}

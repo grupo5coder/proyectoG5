@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% if cliente %}
+<div class="alert alert-primary" role="alert">
+
+        <h1> <Center>    
+         <div class="alert alert-primary" role="alert">
+        Hola el cliente a eliminar es <a href="#" class="alert-link">{{cliente.name}}</a>., estas seguro?.
+        </Center></h1>
+      </div>
+
+</div>
+
+        <form action="/Client/delete-client/{{cliente.id}}/" method="POST" >
+        {% csrf_token %}
+        <center><button>Eliminar</button></center>
+        </form>
+
+
+{% else %}
+
+<div class="alert alert-danger" role="alert"> 
+
+        <h2><center>{{message}}</center></h2>
+
+</div>
+{% endif %}
+
+    
+
+
+
+
+{% endblock %}

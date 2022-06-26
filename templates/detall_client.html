@@ -7,29 +7,35 @@
 {% block contenido %}
 
 
-<h2>Este es el listado de tus detalle clientes</h2>
-<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-   
+<Center>
+    <div class="alert alert-dark" role="alert">
+    <h2>Este es el listado de tus detalle clientes :</h2>
+    </div>
+</Center>
 
+<Center>
+<div class="d-flex" style="margin-top:5rem; margin:5rem">
+   
     <div class="card" style="width: 18rem;">
         
         <div class="card-body">
+            <div class="alert alert-primary" role="alert">
             <h5 class="card-title">{{cliente.name}}</h5>
-            <p class="card-text">{{cliente.Cuit}}</p>
-            <p class="card-text">{{cliente.city}}</p>
-            <p class="card-text">{{cliente.namer_phone}}</p>
-            <p class="card-text">{{cliente.date_create}}</p>
-            <p class="card-text">{{cliente.adess}}</p>
-            <p class="card-text">{{cliente.city}}</p>
-            <p class="card-text">{{cliente.city}}</p>
-            <p class="card-text">{{cliente.active}}</p>
-            
-           
-            
+            </div>
+            <h6>CUIT:<h6> <p class="card-text">{{cliente.Cuit}}</p>
+            </h6>Ciudad :<h6> <p class="card-text">{{cliente.city}}</p>
+            Numero Telefono :<p class="card-text">{{cliente.namer_phone}}</p>
+            Fecha: <p class="card-text">{{cliente.date_create}}</p>
+            Direccion: <p class="card-text">{{cliente.adess}}</p>
+
+            Activo : <p class="card-text">{{cliente.active}}</p>
+        <a href="/Client/delete-client/{{cliente.id}}/" class="btn btn-danger" >Eliminar!</a> 
+
+        <a href="/Client/update-client/{{cliente.id}}/" class="btn btn-primary"  >Modificar!</a> 
+        
         </div>
     </div>
-
-    
+       
 </div>
-
+</Center>   
 {% endblock %}

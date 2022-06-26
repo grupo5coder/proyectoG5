@@ -1,11 +1,15 @@
 
-from multiprocessing.connection import Client
+from http import client
+from multiprocessing import context
+
 from unicodedata import name
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from Appclientes.models import Clients
 from Appclientes.forms import Client_form
+from django.views.generic import ListView , DeleteView , DetailView, UpdateView
+from django.urls import reverse
 
 # Hacer el formualario 
 def client_view(request):
@@ -13,6 +17,11 @@ def client_view(request):
     clientes = Clients.objects.all()
     context = {"clientes":clientes}
     return render(request, "Client.html", context=context)
+    
+#   class List_client(ListView):     # Nombre por defecto = Objet_list
+#       model: Clients
+#       template_name: "Client.html"
+#       queryset = Products.objects.filtrer(is_active=True)    #  Me filtra los objetos. 
 
 def new_client_view(request):
 
@@ -27,7 +36,7 @@ def new_client_view(request):
                 name =  form.cleaned_data['name'],
                 fantacy_name = form.cleaned_data['fantacy_name'],
                 namer_phone = form.cleaned_data['namer_phone'],
-                date_create = form.cleaned_data['date_create'],
+                
                 adess = form.cleaned_data['adess'],
                 city =  form.cleaned_data['city'],
                 Cuit = form.cleaned_data['Cuit'],
@@ -46,13 +55,37 @@ def search_client_view(request):
 
     return render (request,'Search_client.html', context = context)
 
-
 def detall_client(request, pk):
-    try:
+    try :
         cliente = Clients.objects.get(id=pk)
         context = {"cliente":cliente}
         return render(request, "detall_client.html", context=context)
     except: 
-        context = { "error" : "el producto no existe" }
+        context = { "error" : "el cliente no existe" }
         return render (request, "client.html", context=context)
+
+def delete_client(request, pk):
+
+        if request.method == "GET":
+
+            cliente = Clients.objects.get(id=pk)
+            context = {"cliente":cliente}
+
+        else: 
+            cliente = Clients.objects.get(id=pk)
+            cliente.delete()
+            context = {"message":"El cliente fue elimiando Correcto"} 
+
+        return render(request,"delete_Client.html",context=context)
+
+   
+class update_client(UpdateView):
+    model = Clients
+    template_name = "update_client.html"
+    
+    fields = "__all__"
+
+    def get_success_url(self) :
+        return reverse("detall_client",kwargs={"pk":self.object.pk})
+
 
