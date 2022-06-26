@@ -1,6 +1,6 @@
 
 from django.urls import path
-from Appclientes.views import client_view, search_client_view , new_client_view , detall_client , delete_client
+from Appclientes.views import client_view, search_client_view , new_client_view , detall_client , delete_client , update_client
 
 urlpatterns = [
     path("",client_view, name = "Client"),
@@ -8,7 +8,7 @@ urlpatterns = [
     path('search-client/', search_client_view, name = 'search_client_view' ),
     path("detall-client/<int:pk>/", detall_client , name = "detall_client" ), 
     path("delete-client/<int:pk>/", delete_client , name = "delete_client" ),
- 
+    path("update-client/<int:pk>/", update_client.as_view() , name = "update_client" ),
 
     ]
 

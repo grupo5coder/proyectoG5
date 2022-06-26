@@ -1,13 +1,15 @@
 
 from http import client
 from multiprocessing import context
-from multiprocessing.connection import Client
+
 from unicodedata import name
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from Appclientes.models import Clients
 from Appclientes.forms import Client_form
+from django.views.generic import ListView , DeleteView , DetailView, UpdateView
+from django.urls import reverse
 
 # Hacer el formualario 
 def client_view(request):
@@ -15,6 +17,11 @@ def client_view(request):
     clientes = Clients.objects.all()
     context = {"clientes":clientes}
     return render(request, "Client.html", context=context)
+    
+#   class List_client(ListView):     # Nombre por defecto = Objet_list
+#       model: Clients
+#       template_name: "Client.html"
+#       queryset = Products.objects.filtrer(is_active=True)    #  Me filtra los objetos. 
 
 def new_client_view(request):
 
@@ -72,4 +79,13 @@ def delete_client(request, pk):
         return render(request,"delete_Client.html",context=context)
 
    
+class update_client(UpdateView):
+    model = Clients
+    template_name = "update_client.html"
     
+    fields = "__all__"
+
+    def get_success_url(self) :
+        return reverse("detall_client",kwargs={"pk":self.object.pk})
+
+

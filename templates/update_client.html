@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Modificar Clientes 
+{% endblock %}
+
+{% block contenido %}
+
+{% if form %}
+<h2 style="margin-left:7rem">Modificar Produto </h2>
+<form action="" method="POST" style="margin-left:10rem;margin-top:3rem">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input class="btn btn-primary" style="margin-left:10rem;margin-top:0rem" type="submit" , value="Add">
+</form>
+<form method="get" action="/Products/">
+    <input class="btn btn-primary" style="margin-left:10rem;margin-top:0rem" type="submit" style="color: white" value="Volver" />
+</form>
+{% elif new_item %}
+<h2 style="color:grey; margin-left:15rem">Modificacion de producto exitosa! </h2>
+<div class="card" style="width: 15rem;background-color:blue;margin-top:4rem;margin-left:15rem">
+    <div class="card-body">
+        <h5 class="card-title">Nombre: {{new_item.name}}</h5>
+        <p class="card-text">Descripcion: {{new_item.description}}</p>
+        <p class="card-text">Precio: {{new_item.price}}</p>
+    </div>
+</div>
+{% else %}
+<h2 style="color:red; margin-left:15rem"> Ocurrio un error en la modifiacion del producto </h2>
+<div style=color:red;"margin-left:25rem;">{{errors}}</div>
+
+{% endif %}
+
+
+{% endblock %}
