@@ -60,14 +60,19 @@ def detall_client(request, pk):
 def delete_client(request, pk):
     try :
         if request.method == "GET":
+
             cliente = Clients.objects.get(id=pk)
+            
             context = {"cliente":cliente}
         else: 
             cliente = Clients.objects.get(id=pk)
+            
             cliente.delete()
-        context = {"message":"El cliente fue elimiando Correcto"} 
+            context = {"message":"El cliente fue elimiando Correcto"} 
+
         return render(request,"delete_Client.html",context=context)
-    except:
+    except :
+        
         context = {"error":"el Clinete no existe"} 
         return render(request,"delete_Client.html",context=context)
 

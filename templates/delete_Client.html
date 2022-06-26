@@ -7,19 +7,15 @@
 {% block contenido %}
 
 
-{{ % if cliente % }}
-    <h1>   Hola el cliente a eliminar es  {{ cliente.name }} , estas seguro?.  </h1>
+    <h1>   Hola el cliente a eliminar es  {{cliente.name}} , estas seguro?.  </h1>
 
     <form action="/Client/delete-client/{{cliente.id}}/" method="POST" >
         {% csrf_token %}
         <button>  Eliminar </button>
-
-        
     </form>
-{{% else % }}
-    {{message}} 
 
-{{ % endif % }}
+
+
 
     
 
