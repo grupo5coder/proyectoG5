@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Contact Us
+{% endblock %}
+
+{% block contenido %}
+
+<body>
+
+    <div class="container">
+        
+    <h3> Contactanos</h3>
+
+    {% if my_form.errors %}
+    <p style="color:red;"> <strong>Por favor revisá los campos del formulario</strong></p>
+    {% endif %}
+
+    
+
+        <form action="" method="POST"> {% csrf_token %}
+            <table>
+                {{my_form.as_table}}
+            </table>
+            <input class="btn btn-primary" style="margin-left:0rem;margin-top:1rem" type="submit" value="Enviar">
+        </form>
+
+        <form method="get" action="/">
+            <input class="btn btn-primary" style="margin-left:0rem;margin-top:1rem" type="submit" style="color: white"
+                value="Volver" />
+        </form>
+    </div>
+    {% endblock %}
+
+</body>

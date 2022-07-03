@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Contact Us
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+    <h3> Contactanos</h3>
+    
+    {% if my_form.errors}
+    <p style="color:red"> Por favor, revisa los campos del formulario</p>
+    {% endif %}
+
+<form action="" method="POST"> {% csrf_token %}
+    <table>
+    {{form.as_table}}
+    </table>
+    <input type="submit" value="Enviar">
+</form>
+</div>
+{% endblock %}
+
+<!--
+{% for i in } -->
+
+
+<!-- <div class="container">
+    <h3> Contactanos</h3>
+    <form method="post" action="">
+        Asunto: <input style="margin-left:0rem;margin-top:1rem" type="text" style="color: white" name="Asunto" />
+    </form>
+    <form method="POST" action="">
+        Email: <input style="margin-left:0rem;margin-top:1rem" type="text" style="color: white" name="Email" />
+    </form>
+    <form method="post" action="">
+        Mensaje: <textarea style="margin-left:0rem;margin-top:1rem" type="textarea" rows=8 cols=45 style="color: white"
+            name="Mensaje"></textarea>
+    </form>
+    <form method="post" action="/contact/"> {% csrf_token %}
+        <input class="btn btn-primary" style="margin-left:0rem;margin-top:1rem" type="submit" style="color: white"
+            value="Enviar" />
+    </form>
+    <form method="get" action=" /">
+        <input class="btn btn-primary" style="margin-left:0rem;margin-top:1rem" type="submit" style="color: white"
+            value="Volver" />
+    </form>
+</div>
+{% endblock %} -->

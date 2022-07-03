@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Registro
+{% endblock %}
+
+{% block contenido %}
+    <h3>{{errors}}</h3>
+    <h2>Complete los campos para registrarse</h2>
+
+        <form method="POST" action="">
+            {% csrf_token %} 
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit", value="Crear Usuario">
+        </form>
+
+{% endblock %}

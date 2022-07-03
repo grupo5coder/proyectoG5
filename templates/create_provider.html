@@ -15,25 +15,33 @@ Agregar Proveedor
             </table>
             <input type="submit", value="Crear Proveedor">
         </form>
-{% elif new_provider %} 
 
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="/list_providers/create_provider">Crear nuevo proveedor</a>
-</li>
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{new_provider.name}}</h5>
-        <p class="card-text"> {{new_provider.contact}}</p>
-        <p class="card-text">{{new_provider.contact_number}}</p>
-        <p class="card-text" style="color:red">Realizar proxima compra {{new_provider.next_purchase}}</p>
+        {% endif %} 
+    
+    {% endblock %} 
+
+    
+    <!--elif new_provider 
+
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/list_providers/create_provider">Crear nuevo proveedor</a>
+    </li>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{new_provider.name}}</h5>
+            <p class="card-text"> {{new_provider.contact}}</p>
+            <p class="card-text">{{new_provider.contact_number}}</p>
+            <p class="card-text" style="color:red">Realizar proxima compra {{new_provider.next_purchase}}</p>
+        </div>
     </div>
-</div>
 
-{% endif %} 
-<br>
-<form method="get" action="/list_providers/">
-    <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
-</form>
-{% endblock %}
+
+    <br>
+    <form method="get" action="/list_providers/">
+        <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+    </form>
+
+    -->

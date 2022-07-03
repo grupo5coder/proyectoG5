@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Eliminar Proveedor
+{% endblock %}
+
+{% block contenido %}
+
+{% if provider %}
+<h3 style="color: red">Seguro que deseas eliminar este proveedor</h3>
+
+<form action ="/list_providers/delete_provider/{{provider.id}}/" method = "POST">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+</form>
+
+{% else %}
+    {{message}}
+
+{% endif %}
+
+
+{% endblock %}
