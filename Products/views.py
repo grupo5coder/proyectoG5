@@ -37,7 +37,7 @@ class Detail_item(DetailView):
     model = Product
     template_name= 'detail_item.html'
 
-class Delete_item(DeleteView):
+class Delete_item(LoginRequiredMixin,DeleteView):
     model= Product
     template_name='delete_item.html'
 
@@ -45,7 +45,7 @@ class Delete_item(DeleteView):
         return reverse('Product')
 
 
-class Update_item(UpdateView):
+class Update_item(LoginRequiredMixin,UpdateView):
     model = Product
     template_name= 'update_item.html'
     fields = '__all__'
