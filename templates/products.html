@@ -42,11 +42,7 @@ Catálogo de productos
                         <p class="card-text">Categoría:&nbsp{{object.category}}</p>
                         <a href="/Products/detail_item/{{object.id}}/" class="btn btn-primary" class="form-inline my-2 my-lg-10" style="width: 5rem"
                             style="margin-top:2rem; margin-left:2rem">Detail</a>
-                        <!-- <a href="/Products/delete_item/{{item.id}}" class="btn btn-danger" class="form-inline my-2 my-lg-10" style="width: 5rem"
-                            style="margin-top:2rem; margin-left:2rem">Delete</a> -->
-                        <!-- <form method="get" action="#">
-                                <input class="btn btn-danger" style="margin: top 5rem;" type="submit" style="color: white" value="Delete" />
-                            </form> -->
+
 
                     </div>
                 </div>
@@ -59,30 +55,4 @@ Catálogo de productos
 
 
 
-            <!-- 
-        <div class="row row-cols-2 row-cols-md-2 g-2">
-            <div class="col">
-                <div class="d-flex container" style="margin-top:2rem; margin-left:0rem">
-                    {% for item in items %} &nbsp
-                    <div class="card h-100" style="width: 18rem;">
-                        {% if item.image %}
-                        <center><img src="{{item.image.url}}" class="card-img-top" alt="{{image}}" style="width: 30%;">
-                        </center>
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{item.name}}</h5>
-                            <p class="card-text">{{item.description}}</p>
-                            <p class="card-text">{{item.price}}</p>
-                            <p class="card-text">{{item.created_at}}</p>
-                            <p class="card-text">SKU= {{item.SKU}}</p>
-                            <a href="#" class="btn btn-primary" class="form-inline my-2 my-lg-10" style="width: 7rem"
-                                style="margin-top:2rem; margin-left:2rem">Add to cart</a>
-                            <form method="get" action="#">
-                                <input class="btn btn-danger" type="submit" style="color: white" value="Delete" />
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-                {% endfor %} -->
-
+           
