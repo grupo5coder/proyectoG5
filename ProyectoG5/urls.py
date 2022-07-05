@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from ProyectoG5.views import index, contact, login_view, logout_view, register_view
+from ProyectoG5.views import index, contact, login_view, logout_view, register_view, about_us
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
     path('contact/', contact , name= 'contact'),
+    path('about_us/', about_us , name= 'about_us'),
     path('Products/', include('Products.urls')),
     path("list_providers/", include("providers.urls")),
     path("Client/", include ("Appclientes.urls")),

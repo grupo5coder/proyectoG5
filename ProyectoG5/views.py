@@ -16,6 +16,9 @@ def index (request):
     print(request.user.is_authenticated)
     return render(request,'index.html')
 
+def about_us (request):
+    return render(request,'about_us.html')
+
 def contact (request):
     if request.method=="POST":
         my_form= Contact_form(request.POST)
