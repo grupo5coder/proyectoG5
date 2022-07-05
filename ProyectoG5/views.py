@@ -8,13 +8,23 @@ from django.template import Template, context
 from django.template.loader import get_template
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout 
-from ProyectoG5.forms import User_registration_form
+from ProyectoG5.forms import Contact_form, User_registration_form
 from users.models import User_profile 
 
 def index (request):
     print(request.user)
     print(request.user.is_authenticated)
     return render(request,'index.html')
+
+def contact (request):
+    if request.method=="POST":
+        my_form= Contact_form(request.POST)
+        if my_form.is_valid():
+            inf=my_form.cleaned_data
+            return render (request, 'gracias.html', {'inf':inf})
+    else:
+        my_form=Contact_form()
+    return render (request, 'contact.html',{'my_form':my_form})
 
 def login_view(request):
      
