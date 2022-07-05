@@ -5,9 +5,9 @@ Buscar Clietes
 {% endblock %}
 
 {% block contenido %}
-
+<div class="container">
 {% if clientebuscado %}
-<h2 style="margin-right:30rem; margin-top:2rem">El Client buscado es:</h2>
+<h2 style="margin-right:30rem; margin-top:2rem">El Cliente buscado es:</h2>
 <div class="d-flex" style="margin-top:2rem; margin-left:5rem">
     {% for cliente in clientebuscado %}
     <div class="d-flex" style="margin-top:2rem; margin-left:7rem">
@@ -28,5 +28,9 @@ Buscar Clietes
 
 {% endif %}
 <div style="color:red; margin-left:10rem">{{errors}}</div>
-
+<div class="container">
+<form method="get" action="/Client/">
+    <input class="btn btn-primary" type="submit" style="color: white; margin-top: 5rem" value="Volver" />
+</form>
+</div>
 {% endblock %}

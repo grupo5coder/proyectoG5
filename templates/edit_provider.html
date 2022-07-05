@@ -5,16 +5,21 @@ Actualizar Proveedor
 {% endblock %}
 
 {% block contenido %}
+<div class="container">
     {% if form %} 
     <h2>Completá los datos del proveedor que deseas Actualizar</h2>
 
-    <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
+    <form action="" method="POST" style="margin-left:5rem;margin-top:4rem">
         {% csrf_token %}
         <table>
             {{form.as_table}}
         </table>
-        <input type="submit" , value="Enviar">
+        <input class="btn btn-primary" type="submit" , value="Enviar">
     </form>
 {% endif %}
-
+</br>
+<form method="get" action="/list_providers/detail_provider/{{provider.id}}/">
+    <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+</form>
+</div>
 {% endblock %}

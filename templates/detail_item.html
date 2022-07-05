@@ -6,12 +6,10 @@ Detalle de producto
 
 {% block contenido %}
 <div class="container">
-<form method="get" action="/Products/">
-    <input class="btn btn-primary" type="submit" style="color: white; text-align:left; margin-top: 2rem" value="Volver" />
-</form>
 
-<h3 style="margin-left:5rem">Detalle de producto</h3>
-<div class="d-flex" style="margin-top:3rem; margin-left:7rem">
+<h3 style="margin-left:2rem; margin-top:2rem">Detalle de producto</h3>
+
+<div class="d-flex" style="margin-top:2rem; margin-left:3rem">
 
     <div class="card" style="width: 18rem;">
         {% if object.image %}
@@ -28,7 +26,11 @@ Detalle de producto
     </div>
 
 </div>
+<form method="get" action="/Products/">
+    <input class="btn btn-primary" type="submit" style="color: white; text-align:left; margin-top: 2rem" value="Volver" />
+</form>
 </div>
+
 {% endblock %}
 
 

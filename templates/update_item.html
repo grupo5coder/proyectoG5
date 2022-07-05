@@ -5,10 +5,10 @@ Editar productos
 {% endblock %}
 
 {% block contenido %}
-
+<div class="container">
     {% if form %}
-        <h2 style="margin-left:30rem">Completá los campos a actualizar</h2>
-        <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
+        <h2 style="margin-left:2rem">Completá los campos a actualizar</h2>
+        <form action="" method="POST" style="margin-left:2rem;margin-top:3rem">
             {% csrf_token %}
             <table>
                 {{form.as_table}}
@@ -16,5 +16,9 @@ Editar productos
             <input class="btn btn-primary" type="submit" , value="Editar">
         </form>
     {% endif %}
-
+    </br>
+    <form method="get" action="/Products/detail_item/{{object.id}}/">
+        <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
+    </form>
+</div>
 {% endblock %}

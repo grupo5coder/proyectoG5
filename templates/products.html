@@ -34,7 +34,7 @@ Catálogo de productos
                     <center><img src="{{object.image.url}}" class="card-img-top" alt="{{object.name}}" style="width: 25%;"></center>
                     {% endif %}
 
-                    <div class="card-body h-100" style="text-align:center; margin: 4px 4px">
+                    <div class="card-body" style="text-align:center; margin: 4px 4px">
                         <h5 class="card-title">{{object.name}}</h5>
                         <p class="card-text">{{object.description}}</p>
                         <p class="card-text">Precio: ${{object.price}}</p>
@@ -48,9 +48,13 @@ Catálogo de productos
                 </div>
         </div>
             {% endfor %}
-
-        </body>
-    </div>
+</div>
+    <form method="get" action=" /">
+        <input class="btn btn-primary" type="submit" style="color: white; margin-top: 2rem;" value="Volver" />
+    </form>
+</body>
+    
+    
     {% endblock %}
 
 

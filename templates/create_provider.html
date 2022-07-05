@@ -5,6 +5,7 @@ Agregar Proveedor
 {% endblock %}
 
 {% block contenido %}
+<div class="container">
 {% if form %} 
     <h2>Completá los datos del proveedor a cargar</h2>
 
@@ -13,12 +14,15 @@ Agregar Proveedor
             <table>
                 {{form.as_table}}
             </table>
-            <input type="submit", value="Crear Proveedor">
+            <input class="btn btn-primary" type="submit", value="Crear Proveedor">
         </form>
 
 
         {% endif %} 
-    
+        <form method="get" action=" /">
+            <input class="btn btn-primary" type="submit" style="color: white; margin-top: 2rem;" value="Volver" />
+        </form>
+    </div>
     {% endblock %} 
 
     

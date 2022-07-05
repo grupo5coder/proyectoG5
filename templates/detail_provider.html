@@ -9,12 +9,9 @@
     <a class="nav-link" href="/list_providers/create_provider/">Crear nuevo proveedor</a>
 </li> -->
 
+<div class="container">
 
-<form method="get" action="/list_providers/">
-    <input class="btn btn-primary" type="submit" style="color: white" value="Volver" />
-</form>
-
-<h2 style="margin-left:30rem">Aqui va el detalle del proveedor</h2>
+<h2 style="margin: left 5rem">Aqui va el detalle del proveedor</h2>
 <body>
 {{message}}
 
@@ -31,5 +28,10 @@
             </div>
         </div>
 
+    </div>
+    <form method="get" action="/list_providers/">
+        <input class="btn btn-primary" type="submit" style="color: white; margin-top: 2rem;" value="Volver" />
+    </form>
+</div>
     </body>
     {% endblock %}
