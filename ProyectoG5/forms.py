@@ -2,6 +2,12 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+class Contact_form(forms.Form):
+    asunto=forms.CharField()
+    email=forms.EmailField()
+    mensaje=forms.CharField()
+
+
 class User_registration_form(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label = "Contraseña", widget=forms.PasswordInput)
